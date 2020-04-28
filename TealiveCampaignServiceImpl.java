@@ -65,7 +65,10 @@ public class TealiveCampaignServiceImpl implements TealiveCampaignService {
         try {
             Writer writer = new StringWriter();
             Template template = cfg.getTemplate("test.ftl");
-            template.process(null, writer);
+             Map<String,String> map =new HashMap<>();
+            map.put("federatedCount","0");
+            map.put("s3Status","Complaint");
+            template.process(map, writer);
             DocumentBuilder builder = null;
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
             builder = builderFactory.newDocumentBuilder();

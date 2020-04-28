@@ -132,7 +132,7 @@
                         <td style='padding-left:100px;' class='captionInside'>Federated</td>
                     </tr>
                     <tr>
-                        <td style='padding-left:150px;color:green;' class='captionInside'>Complaint = 10</td>
+                        <td style='padding-left:150px;color:green;' class='captionInside'>Complaint = ${(federatedCount)!"0"}</td>
                     </tr>
                     <tr>
                         <td style='padding-left:150px;color:grey;' class='captionInside'>Review Required = 2</td>
@@ -155,6 +155,31 @@
                 </table>
             </td>
     </tr>
+    <tr>
+                <td class='section'>
+                    <table class='panel'>
+                        <tr>
+                            <td class='panel-title' colspan='2'>Testing</td>
+                        </tr>
+                         <#if s3Status == 'Complaint'>
+                                <tr>
+                                   <td  style='padding-left:150px;' class='captionInside'>S3-status(<span style='color:green;'>Complaint</span>)</td>
+                                </tr>
+                          </#if>
+                        <#if s3Status == 'Non Complaint'>
+                                <tr>
+                                   <td style='padding-left:150px;' class='captionInside'>S3-status(<span style='color:red;'>Non Complaint</span>)</td>
+                                </tr>
+                         </#if>
+                        <#if s3Status == 'N/A'>
+                                <tr>
+                                   <td style='padding-left:150px;' class='captionInside'><span style='color:grey;'>Non Complaint</span></td>
+                                </tr>
+                         </#if>
+
+                    </table>
+                </td>
+        </tr>
 </table>
 </body>
 </html>
